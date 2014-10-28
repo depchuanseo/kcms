@@ -1,0 +1,33 @@
+@import url(http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800);body{font-family:"Open Sans","Helvetica Neue",Helvetica,Arial,sans-serif;font-size:13px;}h1,h2,h3,h4,h5,h6,.h1,.h2,.h3,.h4,.h5,.h6{font-weight:400;}h1,h2,h3,h4,h5,h6,.h1,.h2,.h3,.h4,.h5,.h6,.heading-font{font-family:"Open Sans","Helvetica Neue",Helvetica,Arial,sans-serif;}
+body {
+    background-color: #f8f8f8;
+    font-size: 14px;
+}
+.login-panel {
+    margin-top: 25%;
+}
+.form-control:focus {
+    border-color:#ccc!important;
+    -webkit-box-shadow: none!important;
+    -moz-box-shadow: none!important;
+    box-shadow: none!important;
+}
+
+#page-wrapper {
+    position: inherit;
+    margin: 0 0 0 250px;
+    padding: 0 30px;
+    border-left: 1px solid #e7e7e7;
+}
+
+.sidebar ul li a.active {
+    background-color: #eee;
+}
+
+.sidebar ul li {
+    border-bottom: 1px solid #e7e7e7;
+}
+
+.sidebar .nav-second-level li a {
+    padding-left: 37px;
+}
