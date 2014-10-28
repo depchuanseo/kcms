@@ -31,3 +31,9 @@ body {
 .sidebar .nav-second-level li a {
     padding-left: 37px;
 }
+
+.toolbarMenu {
+    border-bottom: 1px solid #eee;
+    margin-bottom: 10px;
+    padding-bottom: 10px;
+}

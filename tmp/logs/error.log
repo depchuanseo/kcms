@@ -598,3 +598,14 @@ Request URL: /kcms/admin/categories/add?terms=post
 Stack Trace:
 #0 E:\xampp\htdocs\nobita\kcms\webroot\index.php(97): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
 #1 {main}
+2014-10-28 11:06:10 Error: [MissingActionException] Action CategoriesController::admin_add() could not be found.
+Exception Attributes: array (
+  'controller' => 'CategoriesController',
+  'action' => 'admin_add',
+)
+Request URL: /kcms/admin/categories/add?terms=post
+Stack Trace:
+#0 E:\xampp\htdocs\nobita\kcms\Cake\Routing\Dispatcher.php(185): Controller->invokeAction(Object(CakeRequest))
+#1 E:\xampp\htdocs\nobita\kcms\Cake\Routing\Dispatcher.php(160): Dispatcher->_invoke(Object(CategoriesController), Object(CakeRequest), Object(CakeResponse))
+#2 E:\xampp\htdocs\nobita\kcms\webroot\index.php(97): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
