@@ -37,7 +37,12 @@ class PagesController extends AppController {
      * 	or MissingViewException in debug mode.
      */
     public function frontend() {
-        
+        //BEGIN-SEO
+        $meta_title = Configure::read('CFG.meta_title');
+        $meta_description = Configure::read('CFG.meta_description');
+        $meta_keywords = Configure::read('CFG.meta_keywords');
+        $this->set(compact('meta_title', 'meta_description', 'meta_keywords'));
+        //END-SEO
     }
 
     public function admin_backend() {

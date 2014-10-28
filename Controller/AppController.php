@@ -25,6 +25,7 @@ class AppController extends Controller {
 
     public $components = array(
         'Session',
+        'Tool',
         'Auth' => array(
             'loginRedirect' => array(
                 'controller' => 'pages',
@@ -45,7 +46,7 @@ class AppController extends Controller {
 
     public function isAuthorized($user) {
         // Admin can access every action
-        if (isset($user['role']) && $user['role'] === 'admin') {
+        if (isset($user['group_id']) && $user['group_id'] == 1) {
             return true;
         }
 
@@ -56,11 +57,20 @@ class AppController extends Controller {
     public function beforeFilter() {
         parent::beforeFilter();
         $this->Auth->allow();
-        $this->layout = 'backend';
-        $this->theme = 'Backend';
         if ((isset($this->params['prefix']) && ($this->params['prefix'] === 'admin'))) {
             $this->layout = 'backend';
             $this->theme = 'Backend';
+            $this->Auth->deny();
+        }
+        $this->loadModel('Configuration');
+        $this->Configuration->load('CFG');
+    }
+
+    public function check_slug($model, $name = 'title', $slug_field = 'slug') {
+        if (empty($this->request->data[$model][$slug_field])) {
+            $this->request->data[$model][$slug_field] = $this->Tool->slug($this->request->data[$model][$name]);
+        } else {
+            $this->request->data[$model][$slug_field] = $this->Tool->slug($this->request->data[$model][$slug_field]);
         }
     }
 

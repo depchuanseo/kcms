@@ -73,7 +73,6 @@
                 </div>
             </div>
             <div class="col-xs-9">
-                <?php echo $this->Session->flash(); ?>
                 <?php echo $this->fetch('content'); ?>
             </div>
         </div>

@@ -37,3 +37,6 @@ body {
     margin-bottom: 10px;
     padding-bottom: 10px;
 }
+.actions {
+    width: 180px;
+}

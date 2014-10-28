@@ -609,3 +609,262 @@ Stack Trace:
 #1 E:\xampp\htdocs\nobita\kcms\Cake\Routing\Dispatcher.php(160): Dispatcher->_invoke(Object(CategoriesController), Object(CakeRequest), Object(CakeResponse))
 #2 E:\xampp\htdocs\nobita\kcms\webroot\index.php(97): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
 #3 {main}
+2014-10-28 18:39:36 Error: [MissingControllerException] Controller class ConfigurationsController could not be found.
+Exception Attributes: array (
+  'class' => 'ConfigurationsController',
+  'plugin' => NULL,
+)
+Request URL: /kcms/admin/configurations
+Stack Trace:
+#0 G:\www\htdocs\kcms\webroot\index.php(97): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2014-10-28 18:39:44 Error: [MissingActionException] Action CategoriesController::admin_add() could not be found.
+Exception Attributes: array (
+  'controller' => 'CategoriesController',
+  'action' => 'admin_add',
+)
+Request URL: /kcms/admin/categories/add?terms=post
+Stack Trace:
+#0 G:\www\htdocs\kcms\Cake\Routing\Dispatcher.php(185): Controller->invokeAction(Object(CakeRequest))
+#1 G:\www\htdocs\kcms\Cake\Routing\Dispatcher.php(160): Dispatcher->_invoke(Object(CategoriesController), Object(CakeRequest), Object(CakeResponse))
+#2 G:\www\htdocs\kcms\webroot\index.php(97): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2014-10-28 18:39:48 Error: [MissingTableException] Table groups for model Group was not found in datasource default.
+Exception Attributes: array (
+  'table' => 'groups',
+  'class' => 'Group',
+  'ds' => 'default',
+)
+Request URL: /kcms/admin/users
+Stack Trace:
+#0 G:\www\htdocs\kcms\Cake\Model\Model.php(3499): Model->setSource('groups')
+#1 G:\www\htdocs\kcms\Cake\Model\Datasource\DboSource.php(1063): Model->getDataSource()
+#2 G:\www\htdocs\kcms\Cake\Model\Model.php(2903): DboSource->read(Object(User), Array)
+#3 G:\www\htdocs\kcms\Cake\Model\Model.php(2875): Model->_readDataSource('all', Array)
+#4 G:\www\htdocs\kcms\Cake\Controller\Component\PaginatorComponent.php(196): Model->find('all', Array)
+#5 G:\www\htdocs\kcms\Controller\UsersController.php(41): PaginatorComponent->paginate()
+#6 [internal function]: UsersController->admin_index()
+#7 G:\www\htdocs\kcms\Cake\Controller\Controller.php(490): ReflectionMethod->invokeArgs(Object(UsersController), Array)
+#8 G:\www\htdocs\kcms\Cake\Routing\Dispatcher.php(185): Controller->invokeAction(Object(CakeRequest))
+#9 G:\www\htdocs\kcms\Cake\Routing\Dispatcher.php(160): Dispatcher->_invoke(Object(UsersController), Object(CakeRequest), Object(CakeResponse))
+#10 G:\www\htdocs\kcms\webroot\index.php(97): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#11 {main}
+2014-10-28 19:47:22 Error: [MissingActionException] Action CategoriesController::admin_add() could not be found.
+Exception Attributes: array (
+  'controller' => 'CategoriesController',
+  'action' => 'admin_add',
+)
+Request URL: /kcms/admin/categories/add?terms=post
+Stack Trace:
+#0 G:\www\htdocs\kcms\Cake\Routing\Dispatcher.php(185): Controller->invokeAction(Object(CakeRequest))
+#1 G:\www\htdocs\kcms\Cake\Routing\Dispatcher.php(160): Dispatcher->_invoke(Object(CategoriesController), Object(CakeRequest), Object(CakeResponse))
+#2 G:\www\htdocs\kcms\webroot\index.php(97): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2014-10-28 19:55:42 Error: [MissingControllerException] Controller class KcmsController could not be found.
+Exception Attributes: array (
+  'class' => 'KcmsController',
+  'plugin' => NULL,
+)
+Request URL: /kcms/kcms/admin
+Stack Trace:
+#0 G:\www\htdocs\kcms\webroot\index.php(97): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2014-10-28 19:55:47 Error: [MissingActionException] Action UsersController::admin() could not be found.
+Exception Attributes: array (
+  'controller' => 'UsersController',
+  'action' => 'admin',
+)
+Request URL: /kcms/users/admin
+Stack Trace:
+#0 G:\www\htdocs\kcms\Cake\Routing\Dispatcher.php(185): Controller->invokeAction(Object(CakeRequest))
+#1 G:\www\htdocs\kcms\Cake\Routing\Dispatcher.php(160): Dispatcher->_invoke(Object(UsersController), Object(CakeRequest), Object(CakeResponse))
+#2 G:\www\htdocs\kcms\webroot\index.php(97): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2014-10-28 19:55:59 Error: [MissingControllerException] Controller class KcmsController could not be found.
+Exception Attributes: array (
+  'class' => 'KcmsController',
+  'plugin' => NULL,
+)
+Request URL: /kcms/kcms/admin
+Stack Trace:
+#0 G:\www\htdocs\kcms\webroot\index.php(97): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2014-10-28 19:58:03 Error: Fatal Error (1): Class 'BlowfishPasswordHasher' not found in [G:\www\htdocs\kcms\Controller\UsersController.php, line 21]
+2014-10-28 19:58:03 Error: [FatalErrorException] Class 'BlowfishPasswordHasher' not found
+Request URL: /kcms/admin/users/login
+Stack Trace:
+#0 G:\www\htdocs\kcms\Cake\Error\ErrorHandler.php(203): ErrorHandler::handleFatalError(1, 'Class 'Blowfish...', 'G:\\www\\htdocs\\k...', 21)
+#1 [internal function]: ErrorHandler::handleError(1, 'Class 'Blowfish...', 'G:\\www\\htdocs\\k...', 21, Array)
+#2 G:\www\htdocs\kcms\Cake\Core\App.php(929): call_user_func('ErrorHandler::h...', 1, 'Class 'Blowfish...', 'G:\\www\\htdocs\\k...', 21, Array)
+#3 G:\www\htdocs\kcms\Cake\Core\App.php(902): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2014-10-28 19:58:43 Error: Fatal Error (1): Class 'BlowfishPasswordHasher' not found in [G:\www\htdocs\kcms\Controller\UsersController.php, line 21]
+2014-10-28 19:58:43 Error: [FatalErrorException] Class 'BlowfishPasswordHasher' not found
+Request URL: /kcms/admin/users/login
+Stack Trace:
+#0 G:\www\htdocs\kcms\Cake\Error\ErrorHandler.php(203): ErrorHandler::handleFatalError(1, 'Class 'Blowfish...', 'G:\\www\\htdocs\\k...', 21)
+#1 [internal function]: ErrorHandler::handleError(1, 'Class 'Blowfish...', 'G:\\www\\htdocs\\k...', 21, Array)
+#2 G:\www\htdocs\kcms\Cake\Core\App.php(929): call_user_func('ErrorHandler::h...', 1, 'Class 'Blowfish...', 'G:\\www\\htdocs\\k...', 21, Array)
+#3 G:\www\htdocs\kcms\Cake\Core\App.php(902): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2014-10-28 20:04:45 Error: [MissingActionException] Action CategoriesController::admin_add() could not be found.
+Exception Attributes: array (
+  'controller' => 'CategoriesController',
+  'action' => 'admin_add',
+)
+Request URL: /kcms/admin/categories/add?terms=post
+Stack Trace:
+#0 G:\www\htdocs\kcms\Cake\Routing\Dispatcher.php(185): Controller->invokeAction(Object(CakeRequest))
+#1 G:\www\htdocs\kcms\Cake\Routing\Dispatcher.php(160): Dispatcher->_invoke(Object(CategoriesController), Object(CakeRequest), Object(CakeResponse))
+#2 G:\www\htdocs\kcms\webroot\index.php(97): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2014-10-28 20:28:11 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /kcms/js/jquery.flexisel.js
+Stack Trace:
+#0 G:\www\htdocs\kcms\webroot\index.php(97): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2014-10-28 20:28:11 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /kcms/css/bootstrap.min.css
+Stack Trace:
+#0 G:\www\htdocs\kcms\webroot\index.php(97): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2014-10-28 20:28:11 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /kcms/js/bootstrap.min.js
+Stack Trace:
+#0 G:\www\htdocs\kcms\webroot\index.php(97): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2014-10-28 20:28:11 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /kcms/css/style.css
+Stack Trace:
+#0 G:\www\htdocs\kcms\webroot\index.php(97): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2014-10-28 20:28:11 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /kcms/js/jquery-1.11.1.min.js
+Stack Trace:
+#0 G:\www\htdocs\kcms\webroot\index.php(97): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2014-10-28 20:28:11 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /kcms/js/bootstrap.min.js
+Stack Trace:
+#0 G:\www\htdocs\kcms\webroot\index.php(97): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2014-10-28 20:28:12 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /kcms/js/jquery.flexisel.js
+Stack Trace:
+#0 G:\www\htdocs\kcms\webroot\index.php(97): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2014-10-28 20:29:21 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /kcms/css/style.css
+Stack Trace:
+#0 G:\www\htdocs\kcms\webroot\index.php(97): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2014-10-28 20:29:21 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /kcms/css/bootstrap.min.css
+Stack Trace:
+#0 G:\www\htdocs\kcms\webroot\index.php(97): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2014-10-28 20:29:21 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /kcms/js/jquery-1.11.1.min.js
+Stack Trace:
+#0 G:\www\htdocs\kcms\webroot\index.php(97): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2014-10-28 20:29:21 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /kcms/js/bootstrap.min.js
+Stack Trace:
+#0 G:\www\htdocs\kcms\webroot\index.php(97): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2014-10-28 20:29:21 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /kcms/js/jquery.flexisel.js
+Stack Trace:
+#0 G:\www\htdocs\kcms\webroot\index.php(97): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2014-10-28 20:29:21 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /kcms/js/bootstrap.min.js
+Stack Trace:
+#0 G:\www\htdocs\kcms\webroot\index.php(97): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2014-10-28 20:29:22 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /kcms/js/jquery.flexisel.js
+Stack Trace:
+#0 G:\www\htdocs\kcms\webroot\index.php(97): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2014-10-28 20:30:07 Error: [MissingActionException] Action MenusController::admin_index() could not be found.
+Exception Attributes: array (
+  'controller' => 'MenusController',
+  'action' => 'admin_index',
+)
+Request URL: /kcms/admin/menus
+Stack Trace:
+#0 G:\www\htdocs\kcms\Cake\Routing\Dispatcher.php(185): Controller->invokeAction(Object(CakeRequest))
+#1 G:\www\htdocs\kcms\Cake\Routing\Dispatcher.php(160): Dispatcher->_invoke(Object(MenusController), Object(CakeRequest), Object(CakeResponse))
+#2 G:\www\htdocs\kcms\webroot\index.php(97): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2014-10-28 20:31:33 Error: [MissingActionException] Action MenusController::admin_index() could not be found.
+Exception Attributes: array (
+  'controller' => 'MenusController',
+  'action' => 'admin_index',
+)
+Request URL: /kcms/admin/menus
+Stack Trace:
+#0 G:\www\htdocs\kcms\Cake\Routing\Dispatcher.php(185): Controller->invokeAction(Object(CakeRequest))
+#1 G:\www\htdocs\kcms\Cake\Routing\Dispatcher.php(160): Dispatcher->_invoke(Object(MenusController), Object(CakeRequest), Object(CakeResponse))
+#2 G:\www\htdocs\kcms\webroot\index.php(97): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
