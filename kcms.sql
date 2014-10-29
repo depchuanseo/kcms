@@ -85,9 +85,9 @@ CREATE TABLE IF NOT EXISTS `categories` (
   `created` datetime NOT NULL,
   `modified` datetime NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 
--- Dumping data for table kcms.categories: ~1 rows (approximately)
+-- Dumping data for table kcms.categories: ~0 rows (approximately)
 /*!40000 ALTER TABLE `categories` DISABLE KEYS */;
 INSERT INTO `categories` (`id`, `title`, `slug`, `image`, `description`, `published`, `meta_title`, `meta_keywords`, `meta_description`, `template`, `terms`, `created`, `modified`) VALUES
 	(1, 'Uncategorized', 'uncategorized', NULL, NULL, 1, NULL, NULL, NULL, NULL, 'page', '0000-00-00 00:00:00', '0000-00-00 00:00:00');
@@ -221,12 +221,13 @@ CREATE TABLE IF NOT EXISTS `users` (
   `created` datetime NOT NULL,
   `modified` datetime NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 
--- Dumping data for table kcms.users: ~1 rows (approximately)
+-- Dumping data for table kcms.users: ~0 rows (approximately)
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
 INSERT INTO `users` (`id`, `group_id`, `username`, `password`, `email`, `published`, `created`, `modified`) VALUES
-	(1, 3, 'admin', '$2a$10$7X2llSRxP6CrC8fzIKpMfe4NnjVkozqeYnLAJeS2DxpuQN4QFvKwe', 'depchuanseo@gmail.com', 1, '2014-10-28 09:32:15', '2014-10-28 09:32:15');
+	(1, 1, 'admin', '$2a$10$Y9HMF2abZ18V9kSHQ/jWQuj4MIbJCYSsL/0MzlpIQV8MPcfjIv/.u', 'depchuanseo@gmail.com', 1, '2014-10-28 09:32:15', '2014-10-29 07:50:38'),
+	(2, 3, 'ntsieu', '$2a$10$NcT4KM.HnMVRtDmJCrdlkOC22fzwPIZHRDsBgvmaxQRf4AmZkgaxO', 'ntsieu@gmail.com', 1, '2014-10-29 06:59:13', '2014-10-29 06:59:13');
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 /*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;
 /*!40014 SET FOREIGN_KEY_CHECKS=IF(@OLD_FOREIGN_KEY_CHECKS IS NULL, 1, @OLD_FOREIGN_KEY_CHECKS) */;

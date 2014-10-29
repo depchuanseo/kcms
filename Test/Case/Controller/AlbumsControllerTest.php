@@ -14,7 +14,9 @@ class AlbumsControllerTest extends ControllerTestCase {
  */
 	public $fixtures = array(
 		'app.album',
-		'app.category'
+		'app.category',
+		'app.post',
+		'app.product'
 	);
 
 /**
