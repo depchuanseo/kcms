@@ -9,7 +9,7 @@
 		echo $this->Form->input('username');
 		echo $this->Form->input('password');
 		echo $this->Form->input('email');
-		echo $this->Form->input('published');
+		echo $this->Form->input('published', array('class' => false, 'label'=> '&nbsp;Hiển thị', 'checked' => 'checked'));
 	?>
         </fieldset>
                     <?php echo $this->Form->end(array('label' => 'Thêm mới', 'class' => 'btn btn-primary btn-sm', 'div' => 'form-group')); ?>

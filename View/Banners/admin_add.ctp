@@ -1,23 +1,19 @@
-<div class="banners form">
-<?php echo $this->Form->create('Banner'); ?>
-	<fieldset>
-		<legend><?php echo __('Add Banner'); ?></legend>
-	<?php
+<div class="panel panel-default">
+    <h2 class="panel-heading panel-title"><?php echo __('Add Banner'); ?></h2>
+    <div class="panel-body">
+        <?php echo $this->Form->create('Banner', array('role'=>'form', 'inputDefaults'=>array('class' => 'form-control', 'div'=>'form-group'))); ?>
+        <fieldset>
+            <legend></legend>
+            	<?php
 		echo $this->Form->input('terms');
 		echo $this->Form->input('title');
 		echo $this->Form->input('slug');
 		echo $this->Form->input('image');
 		echo $this->Form->input('description');
-		echo $this->Form->input('published');
+		echo $this->Form->input('published', array('class' => false, 'label'=> '&nbsp;Hiển thị', 'checked' => 'checked'));
 		echo $this->Form->input('params');
 	?>
-	</fieldset>
-<?php echo $this->Form->end(__('Submit')); ?>
-</div>
-<div class="actions">
-	<h3><?php echo __('Actions'); ?></h3>
-	<ul>
-
-		<li><?php echo $this->Html->link(__('List Banners'), array('action' => 'index')); ?></li>
-	</ul>
+        </fieldset>
+                    <?php echo $this->Form->end(array('label' => 'Thêm mới', 'class' => 'btn btn-primary btn-sm', 'div' => 'form-group')); ?>
+            </div>
 </div>

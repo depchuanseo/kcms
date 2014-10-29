@@ -1,20 +1,15 @@
-<div class="menus form">
-<?php echo $this->Form->create('Menu'); ?>
-	<fieldset>
-		<legend><?php echo __('Add Menu'); ?></legend>
-	<?php
+<div class="panel panel-default">
+    <h2 class="panel-heading panel-title"><?php echo __('Add Menu'); ?></h2>
+    <div class="panel-body">
+        <?php echo $this->Session->flash(); ?>
+        <?php echo $this->Form->create('Menu', array('role'=>'form', 'inputDefaults'=>array('class' => 'form-control', 'div'=>'form-group'))); ?>
+        <fieldset>
+            <legend></legend>
+            	<?php
 		echo $this->Form->input('title');
 		echo $this->Form->input('slug');
 	?>
-	</fieldset>
-<?php echo $this->Form->end(__('Submit')); ?>
-</div>
-<div class="actions">
-	<h3><?php echo __('Actions'); ?></h3>
-	<ul>
-
-		<li><?php echo $this->Html->link(__('List Menus'), array('action' => 'index')); ?></li>
-		<li><?php echo $this->Html->link(__('List Links'), array('controller' => 'links', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Link'), array('controller' => 'links', 'action' => 'add')); ?> </li>
-	</ul>
+        </fieldset>
+                    <?php echo $this->Form->end(array('label' => 'Thêm mới', 'class' => 'btn btn-primary btn-sm', 'div' => 'form-group')); ?>
+            </div>
 </div>

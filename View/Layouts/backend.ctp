@@ -50,6 +50,16 @@
                                 <!-- /.nav-second-level -->
                             </li>
                             <li>
+                                <?php echo $this->Html->link('<i class="fa fa-bar-chart-o fa-fw"></i> Quản trị thư viện ảnh<span class="fa arrow"></span>', '#', array('class' => 'text-success', 'escape' => FALSE)); ?>
+                                <ul class="nav nav-second-level collapse">
+                                    <li><?php echo $this->Html->link('<i class="fa fa-angle-right"></i> Danh mục', '/admin/categories/?terms=gallery', array('class' => 'text-success', 'escape' => FALSE)); ?></li>
+                                    <li><?php echo $this->Html->link('<i class="fa fa-angle-right"></i> Thêm danh mục', '/admin/categories/add/gallery', array('class' => 'text-success', 'escape' => FALSE)); ?></li>
+                                    <li><?php echo $this->Html->link('<i class="fa fa-angle-right"></i> Album ảnh', '/admin/albums', array('class' => 'text-success', 'escape' => FALSE)); ?></li>
+                                    <li><?php echo $this->Html->link('<i class="fa fa-angle-right"></i> Thêm Album ảnh', '/admin/albums/add', array('class' => 'text-success', 'escape' => FALSE)); ?></li>
+                                </ul>
+                                <!-- /.nav-second-level -->
+                            </li>
+                            <li>
                                 <?php echo $this->Html->link('<i class="fa fa-home"></i> Cấu hình website', '/admin/configurations', array('class' => 'text-success', 'escape' => FALSE)); ?>
                             </li>
                             <li>

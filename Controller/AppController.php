@@ -56,8 +56,6 @@ class AppController extends Controller {
 
     public function beforeFilter() {
         parent::beforeFilter();
-        $this->layout = 'backend';
-        $this->theme = 'Backend';
         $this->Auth->allow();
         if ((isset($this->params['prefix']) && ($this->params['prefix'] === 'admin'))) {
             $this->layout = 'backend';

@@ -1,18 +1,25 @@
-<div class="links index">
-	<h2><?php echo __('Links'); ?></h2>
-	<table cellpadding="0" cellspacing="0">
-	<tr>
-			<th><?php echo $this->Paginator->sort('id'); ?></th>
-			<th><?php echo $this->Paginator->sort('menu_id'); ?></th>
-			<th><?php echo $this->Paginator->sort('title'); ?></th>
-			<th><?php echo $this->Paginator->sort('slug'); ?></th>
-			<th><?php echo $this->Paginator->sort('link'); ?></th>
-			<th><?php echo $this->Paginator->sort('published'); ?></th>
-			<th><?php echo $this->Paginator->sort('created'); ?></th>
-			<th><?php echo $this->Paginator->sort('modified'); ?></th>
-			<th class="actions"><?php echo __('Actions'); ?></th>
-	</tr>
-	<?php foreach ($links as $link): ?>
+<div class="panel panel-default">
+    <h2 class="panel-heading panel-title"><?php echo __('Links'); ?></h2>
+    <div class="panel-body">
+        <div class="toolbarMenu">
+            <?php echo $this->Html->link(__('Thêm mới'), array('action' => 'add'), array('class' => 'btn btn-danger btn-sm')); ?>            		<?php echo $this->Html->link(__('List Menus'), array('controller' => 'menus', 'action' => 'index'), array('class' => 'btn btn-info btn-sm')); ?> </li>
+		<?php echo $this->Html->link(__('New Menu'), array('controller' => 'menus', 'action' => 'add'), array('class' => 'btn btn-warning btn-sm')); ?> </li>
+        </div>
+        <table class="table table-condensed table-striped">
+            <thead>
+                <tr>
+                                            <th>id</th>
+                                            <th>menu_id</th>
+                                            <th>title</th>
+                                            <th>slug</th>
+                                            <th>link</th>
+                                            <th>published</th>
+                                            <th>created</th>
+                                            <th>modified</th>
+                                        <th class="actions"></th>
+                </tr>
+            </thead>
+            <?php foreach ($links as $link): ?>
 	<tr>
 		<td><?php echo h($link['Link']['id']); ?>&nbsp;</td>
 		<td>
@@ -25,32 +32,12 @@
 		<td><?php echo h($link['Link']['created']); ?>&nbsp;</td>
 		<td><?php echo h($link['Link']['modified']); ?>&nbsp;</td>
 		<td class="actions">
-			<?php echo $this->Html->link(__('View'), array('action' => 'view', $link['Link']['id'])); ?>
-			<?php echo $this->Html->link(__('Edit'), array('action' => 'edit', $link['Link']['id'])); ?>
-			<?php echo $this->Form->postLink(__('Delete'), array('action' => 'delete', $link['Link']['id']), null, __('Are you sure you want to delete # %s?', $link['Link']['id'])); ?>
+			<?php echo $this->Html->link(__('Xem'), array('action' => 'view', $link['Link']['id']), array('class'=>'btn btn-info btn-xs')); ?>
+			<?php echo $this->Html->link(__('Sửa'), array('action' => 'edit', $link['Link']['id']), array('class'=>'btn btn-success btn-xs')); ?>
+			<?php echo $this->Form->postLink(__('Xóa'), array('action' => 'delete', $link['Link']['id']), array('class' => 'btn btn-danger btn-xs'), __('Bạn có chắc chắn muốn xóa %s?', $link['Link']['id'])); ?>
 		</td>
 	</tr>
 <?php endforeach; ?>
-	</table>
-	<p>
-	<?php
-	echo $this->Paginator->counter(array(
-	'format' => __('Page {:page} of {:pages}, showing {:current} records out of {:count} total, starting on record {:start}, ending on {:end}')
-	));
-	?>	</p>
-	<div class="paging">
-	<?php
-		echo $this->Paginator->prev('< ' . __('previous'), array(), null, array('class' => 'prev disabled'));
-		echo $this->Paginator->numbers(array('separator' => ''));
-		echo $this->Paginator->next(__('next') . ' >', array(), null, array('class' => 'next disabled'));
-	?>
-	</div>
-</div>
-<div class="actions">
-	<h3><?php echo __('Actions'); ?></h3>
-	<ul>
-		<li><?php echo $this->Html->link(__('New Link'), array('action' => 'add')); ?></li>
-		<li><?php echo $this->Html->link(__('List Menus'), array('controller' => 'menus', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Menu'), array('controller' => 'menus', 'action' => 'add')); ?> </li>
-	</ul>
+        </table>
+        <?php echo $this->element('backend/pagination'); ?>    </div>
 </div>

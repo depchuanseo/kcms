@@ -20,7 +20,7 @@ class CategoriesController extends AppController {
 *
 * @return void
 */
-public function index() {
+public function admin_index() {
 $this->Category->recursive = 0;
 $this->set('categories', $this->Paginator->paginate());
 }
@@ -45,7 +45,7 @@ $this->set('category', $this->Category->find('first', $options));
 *
 * @return void
 */
-public function add() {
+public function admin_add() {
 if ($this->request->is('post')) {
 $this->Category->create();
 if ($this->Category->save($this->request->data)) {
@@ -64,7 +64,7 @@ if ($this->Category->save($this->request->data)) {
 * @param string $id
 * @return void
 */
-public function edit($id = null) {
+public function admin_edit($id = null) {
 if (!$this->Category->exists($id)) {
 throw new NotFoundException(__('Invalid category'));
 }
@@ -88,7 +88,7 @@ $this->request->data = $this->Category->find('first', $options);
 * @param string $id
 * @return void
 */
-public function delete($id = null) {
+public function admin_delete($id = null) {
 $this->Category->id = $id;
 if (!$this->Category->exists()) {
 throw new NotFoundException(__('Invalid category'));

@@ -1,25 +1,20 @@
-<div class="links form">
-<?php echo $this->Form->create('Link'); ?>
-	<fieldset>
-		<legend><?php echo __('Edit Link'); ?></legend>
-	<?php
+<div class="panel panel-default">
+    <h2 class="panel-heading panel-title"><?php echo __('Edit Link'); ?></h2>
+    <div class="panel-body">
+        <?php echo $this->Form->create('Link', array('role'=>'form', 'inputDefaults'=>array('class' => 'form-control', 'div'=>'form-group'))); ?>
+        <fieldset>
+            <legend></legend>
+            	<?php
 		echo $this->Form->input('id');
 		echo $this->Form->input('menu_id');
 		echo $this->Form->input('title');
 		echo $this->Form->input('slug');
 		echo $this->Form->input('link');
-		echo $this->Form->input('published');
+		echo $this->Form->input('published', array('class' => false, 'label'=> '&nbsp;Hiển thị'));
 	?>
-	</fieldset>
-<?php echo $this->Form->end(__('Submit')); ?>
-</div>
-<div class="actions">
-	<h3><?php echo __('Actions'); ?></h3>
-	<ul>
-
-		<li><?php echo $this->Form->postLink(__('Delete'), array('action' => 'delete', $this->Form->value('Link.id')), null, __('Are you sure you want to delete # %s?', $this->Form->value('Link.id'))); ?></li>
-		<li><?php echo $this->Html->link(__('List Links'), array('action' => 'index')); ?></li>
-		<li><?php echo $this->Html->link(__('List Menus'), array('controller' => 'menus', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Menu'), array('controller' => 'menus', 'action' => 'add')); ?> </li>
-	</ul>
+        </fieldset>
+                    <div class="btn-group btn-sm">
+                <?php echo $this->Form->submit(__('Cập nhật'), array('class' => 'btn btn-primary btn-sm', 'label' => FALSE, 'div' => FALSE)); ?>                <?php echo $this->Html->link(__('Xóa dữ liệu'), array('action' => 'delete', $this->Form->value('Link.id')), array('class' => 'btn btn-danger btn-sm'), __('Bạn có chắc chắn muốn xóa # %s?', $this->Form->value('Link.id'))); ?>            </div>
+            <?php echo $this->Form->end(); ?>
+            </div>
 </div>
