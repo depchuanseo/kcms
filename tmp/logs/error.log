@@ -868,3 +868,83 @@ Stack Trace:
 #1 G:\www\htdocs\kcms\Cake\Routing\Dispatcher.php(160): Dispatcher->_invoke(Object(MenusController), Object(CakeRequest), Object(CakeResponse))
 #2 G:\www\htdocs\kcms\webroot\index.php(97): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
 #3 {main}
+2014-10-29 02:57:16 Error: [MissingTableException] Table configurations for model Configuration was not found in datasource default.
+Exception Attributes: array (
+  'table' => 'configurations',
+  'class' => 'Configuration',
+  'ds' => 'default',
+)
+Request URL: /kcms/admin
+Stack Trace:
+#0 E:\xampp\htdocs\nobita\kcms\Cake\Model\Model.php(3499): Model->setSource('configurations')
+#1 E:\xampp\htdocs\nobita\kcms\Cake\Model\Model.php(2903): Model->getDataSource()
+#2 E:\xampp\htdocs\nobita\kcms\Cake\Model\Model.php(2875): Model->_readDataSource('all', Array)
+#3 E:\xampp\htdocs\nobita\kcms\Model\Configuration.php(54): Model->find('all')
+#4 E:\xampp\htdocs\nobita\kcms\Controller\AppController.php(66): Configuration->load('CFG')
+#5 [internal function]: AppController->beforeFilter(Object(CakeEvent))
+#6 E:\xampp\htdocs\nobita\kcms\Cake\Event\CakeEventManager.php(247): call_user_func(Array, Object(CakeEvent))
+#7 E:\xampp\htdocs\nobita\kcms\Cake\Controller\Controller.php(674): CakeEventManager->dispatch(Object(CakeEvent))
+#8 E:\xampp\htdocs\nobita\kcms\Cake\Routing\Dispatcher.php(182): Controller->startupProcess()
+#9 E:\xampp\htdocs\nobita\kcms\Cake\Routing\Dispatcher.php(160): Dispatcher->_invoke(Object(PagesController), Object(CakeRequest), Object(CakeResponse))
+#10 E:\xampp\htdocs\nobita\kcms\webroot\index.php(97): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#11 {main}
+2014-10-29 02:58:23 Error: [MissingTableException] Table configurations for model Configuration was not found in datasource default.
+Exception Attributes: array (
+  'table' => 'configurations',
+  'class' => 'Configuration',
+  'ds' => 'default',
+)
+Request URL: /kcms/admin
+Stack Trace:
+#0 E:\xampp\htdocs\nobita\kcms\Cake\Model\Model.php(3499): Model->setSource('configurations')
+#1 E:\xampp\htdocs\nobita\kcms\Cake\Model\Model.php(2903): Model->getDataSource()
+#2 E:\xampp\htdocs\nobita\kcms\Cake\Model\Model.php(2875): Model->_readDataSource('all', Array)
+#3 E:\xampp\htdocs\nobita\kcms\Model\Configuration.php(54): Model->find('all')
+#4 E:\xampp\htdocs\nobita\kcms\Controller\AppController.php(66): Configuration->load('CFG')
+#5 [internal function]: AppController->beforeFilter(Object(CakeEvent))
+#6 E:\xampp\htdocs\nobita\kcms\Cake\Event\CakeEventManager.php(247): call_user_func(Array, Object(CakeEvent))
+#7 E:\xampp\htdocs\nobita\kcms\Cake\Controller\Controller.php(674): CakeEventManager->dispatch(Object(CakeEvent))
+#8 E:\xampp\htdocs\nobita\kcms\Cake\Routing\Dispatcher.php(182): Controller->startupProcess()
+#9 E:\xampp\htdocs\nobita\kcms\Cake\Routing\Dispatcher.php(160): Dispatcher->_invoke(Object(PagesController), Object(CakeRequest), Object(CakeResponse))
+#10 E:\xampp\htdocs\nobita\kcms\webroot\index.php(97): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#11 {main}
+2014-10-29 02:58:27 Error: [MissingTableException] Table configurations for model Configuration was not found in datasource default.
+Exception Attributes: array (
+  'table' => 'configurations',
+  'class' => 'Configuration',
+  'ds' => 'default',
+)
+Request URL: /kcms/admin/configurations
+Stack Trace:
+#0 E:\xampp\htdocs\nobita\kcms\Cake\Model\Model.php(3499): Model->setSource('configurations')
+#1 E:\xampp\htdocs\nobita\kcms\Cake\Model\Model.php(2903): Model->getDataSource()
+#2 E:\xampp\htdocs\nobita\kcms\Cake\Model\Model.php(2875): Model->_readDataSource('all', Array)
+#3 E:\xampp\htdocs\nobita\kcms\Model\Configuration.php(54): Model->find('all')
+#4 E:\xampp\htdocs\nobita\kcms\Controller\AppController.php(66): Configuration->load('CFG')
+#5 [internal function]: AppController->beforeFilter(Object(CakeEvent))
+#6 E:\xampp\htdocs\nobita\kcms\Cake\Event\CakeEventManager.php(247): call_user_func(Array, Object(CakeEvent))
+#7 E:\xampp\htdocs\nobita\kcms\Cake\Controller\Controller.php(674): CakeEventManager->dispatch(Object(CakeEvent))
+#8 E:\xampp\htdocs\nobita\kcms\Cake\Routing\Dispatcher.php(182): Controller->startupProcess()
+#9 E:\xampp\htdocs\nobita\kcms\Cake\Routing\Dispatcher.php(160): Dispatcher->_invoke(Object(ConfigurationsController), Object(CakeRequest), Object(CakeResponse))
+#10 E:\xampp\htdocs\nobita\kcms\webroot\index.php(97): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#11 {main}
+2014-10-29 02:58:29 Error: [MissingTableException] Table configurations for model Configuration was not found in datasource default.
+Exception Attributes: array (
+  'table' => 'configurations',
+  'class' => 'Configuration',
+  'ds' => 'default',
+)
+Request URL: /kcms/admin/configurations
+Stack Trace:
+#0 E:\xampp\htdocs\nobita\kcms\Cake\Model\Model.php(3499): Model->setSource('configurations')
+#1 E:\xampp\htdocs\nobita\kcms\Cake\Model\Model.php(2903): Model->getDataSource()
+#2 E:\xampp\htdocs\nobita\kcms\Cake\Model\Model.php(2875): Model->_readDataSource('all', Array)
+#3 E:\xampp\htdocs\nobita\kcms\Model\Configuration.php(54): Model->find('all')
+#4 E:\xampp\htdocs\nobita\kcms\Controller\AppController.php(66): Configuration->load('CFG')
+#5 [internal function]: AppController->beforeFilter(Object(CakeEvent))
+#6 E:\xampp\htdocs\nobita\kcms\Cake\Event\CakeEventManager.php(247): call_user_func(Array, Object(CakeEvent))
+#7 E:\xampp\htdocs\nobita\kcms\Cake\Controller\Controller.php(674): CakeEventManager->dispatch(Object(CakeEvent))
+#8 E:\xampp\htdocs\nobita\kcms\Cake\Routing\Dispatcher.php(182): Controller->startupProcess()
+#9 E:\xampp\htdocs\nobita\kcms\Cake\Routing\Dispatcher.php(160): Dispatcher->_invoke(Object(ConfigurationsController), Object(CakeRequest), Object(CakeResponse))
+#10 E:\xampp\htdocs\nobita\kcms\webroot\index.php(97): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#11 {main}
