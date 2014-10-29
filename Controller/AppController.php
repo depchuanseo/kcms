@@ -74,4 +74,26 @@ class AppController extends Controller {
         }
     }
 
+    public function uploadFile($model, $field = 'image', $slug_field = 'slug') {
+        $file = new File($this->request->data[$model][$field]['tmp_name']);
+
+        $arr = explode('.', $this->request->data[$model][$field]['name']);
+        $ext = end($arr);
+        $file_name = $this->request->data[$model][$slug_field] . '.' . $ext;
+        if ($file->copy(APP . 'webroot/files/' . $model . '/' . $file_name)) {
+            $result = array(
+                'status' => true,
+                'file_name' => $file_name,
+                'file_path' => '/files/' . $model . '/' . $file_name,
+            );
+        } else {
+            $result = array(
+                'status' => false,
+                'file_name' => $file_name,
+                'file_path' => '/files/' . $model . '/' . $file_name,
+            );
+        }
+        return $result;
+    }
+
 }

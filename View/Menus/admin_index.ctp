@@ -17,7 +17,7 @@
             <?php foreach ($menus as $menu): ?>
                 <tr>
                     <td><?php echo h($menu['Menu']['id']); ?></td>
-                    <td><?php echo h($menu['Menu']['title']); ?></td>
+                    <td><?php echo $this->Html->link($menu['Menu']['title'], array('controller' => 'links','action'=>'index', '?' => array('menu_id' => $menu['Menu']['id']))); ?></td>
                     <td><?php echo h($menu['Menu']['slug']); ?></td>
                     <td class="actions">
                         <?php echo $this->Html->link(__('Thêm Link'), array('controller' => 'links', 'action' => 'add', $menu['Menu']['id']), array('class' => 'btn btn-info btn-xs')); ?>
