@@ -62,10 +62,14 @@ CREATE TABLE IF NOT EXISTS `banners` (
   `params` text,
   `created` datetime NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
 
 -- Dumping data for table kcms.banners: ~0 rows (approximately)
 /*!40000 ALTER TABLE `banners` DISABLE KEYS */;
+INSERT INTO `banners` (`id`, `terms`, `title`, `slug`, `image`, `description`, `published`, `params`, `created`) VALUES
+	(1, 'slideshow', 'Slides Logo 1', 'slides-logo-12', '/files/Banner/slides-logo-12.jpg', 'admins', 1, 'addmin', '2014-10-30 00:37:40'),
+	(2, 'slides_logo', 'Slides Logo 1', 'slides-logo-1', '/files/Banner/slides-logo-1.jpg', 'Slides Logo 1', 1, 'Slides Logo 1', '2014-10-30 00:38:25'),
+	(4, 'slideshow', 'Slides Logo 1', 'slides-logo-123', '/files/Banner/slides-logo-123.jpg', '', 1, '', '2014-10-30 03:36:09');
 /*!40000 ALTER TABLE `banners` ENABLE KEYS */;
 
 
@@ -94,6 +98,27 @@ INSERT INTO `categories` (`id`, `title`, `slug`, `image`, `description`, `publis
 /*!40000 ALTER TABLE `categories` ENABLE KEYS */;
 
 
+-- Dumping structure for table kcms.configurations
+CREATE TABLE IF NOT EXISTS `configurations` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `title` varchar(255) NOT NULL,
+  `key` varchar(50) NOT NULL,
+  `value` text NOT NULL,
+  `type` varchar(50) NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `key` (`key`) USING BTREE
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
+
+-- Dumping data for table kcms.configurations: ~4 rows (approximately)
+/*!40000 ALTER TABLE `configurations` DISABLE KEYS */;
+INSERT INTO `configurations` (`id`, `title`, `key`, `value`, `type`) VALUES
+	(1, 'Tiêu đề trang web', 'meta_title', 'Từ khi được thành lập, BOO đã xác định hướng đi của mình là không ngừng nâng cao chất lượng sản phẩm', 'text'),
+	(2, 'Từ khóa trang chủ', 'meta_keywords', 'Thời trang, ý tưởng, iwill', 'text'),
+	(3, 'Mô tả ngắn trang chủ', 'meta_description', 'BOO còn mong muốn đóng góp một phần vào sự phát triển của xã hội, đặc biệt là có thể ảnh hưởng tích cực đến suy nghĩ của các bạn trẻ.', 'text'),
+	(4, 'Địa chỉ chân trang', 'footer_address', '', 'textarea');
+/*!40000 ALTER TABLE `configurations` ENABLE KEYS */;
+
+
 -- Dumping structure for table kcms.groups
 CREATE TABLE IF NOT EXISTS `groups` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
@@ -117,6 +142,9 @@ INSERT INTO `groups` (`id`, `title`, `slug`, `created`, `modified`) VALUES
 CREATE TABLE IF NOT EXISTS `links` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `menu_id` int(11) NOT NULL,
+  `parent_id` int(11) DEFAULT NULL,
+  `lft` int(11) NOT NULL,
+  `rght` int(11) NOT NULL,
   `title` varchar(255) NOT NULL,
   `slug` varchar(255) NOT NULL,
   `link` varchar(255) NOT NULL,
@@ -124,23 +152,32 @@ CREATE TABLE IF NOT EXISTS `links` (
   `created` datetime NOT NULL,
   `modified` datetime NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
 
 -- Dumping data for table kcms.links: ~0 rows (approximately)
 /*!40000 ALTER TABLE `links` DISABLE KEYS */;
+INSERT INTO `links` (`id`, `menu_id`, `parent_id`, `lft`, `rght`, `title`, `slug`, `link`, `published`, `created`, `modified`) VALUES
+	(1, 1, NULL, 1, 4, 'Trang chủ', 'trang-chu', '/', 1, '2014-10-29 23:32:18', '2014-10-29 23:32:18'),
+	(2, 1, NULL, 2, 3, 'Giới thiệu', 'gioi-thieu', '/gioi-thieu', 1, '2014-10-29 23:51:13', '2014-10-29 23:51:13'),
+	(3, 2, NULL, 1, 4, 'Trang chủ', 'trang-chu', '/', 1, '2014-10-30 00:03:04', '2014-10-30 00:08:32'),
+	(4, 2, 3, 2, 3, 'Tin nội bộ', 'tin-noi-bo', '/tin-noi-bo', 1, '2014-10-30 00:04:52', '2014-10-30 00:10:25');
 /*!40000 ALTER TABLE `links` ENABLE KEYS */;
 
 
 -- Dumping structure for table kcms.menus
 CREATE TABLE IF NOT EXISTS `menus` (
-  `id` int(11) DEFAULT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `title` varchar(255) DEFAULT NULL,
   `slug` varchar(255) DEFAULT NULL,
-  `created` datetime DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+  `created` datetime DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 
 -- Dumping data for table kcms.menus: ~0 rows (approximately)
 /*!40000 ALTER TABLE `menus` DISABLE KEYS */;
+INSERT INTO `menus` (`id`, `title`, `slug`, `created`) VALUES
+	(1, 'Main Menu', 'main-menu', '2014-10-29 23:23:57'),
+	(2, 'Menu right', 'menu-right', '2014-10-29 23:27:43');
 /*!40000 ALTER TABLE `menus` ENABLE KEYS */;
 
 
@@ -223,10 +260,10 @@ CREATE TABLE IF NOT EXISTS `users` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 
--- Dumping data for table kcms.users: ~0 rows (approximately)
+-- Dumping data for table kcms.users: ~2 rows (approximately)
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
 INSERT INTO `users` (`id`, `group_id`, `username`, `password`, `email`, `published`, `created`, `modified`) VALUES
-	(1, 1, 'admin', '$2a$10$Y9HMF2abZ18V9kSHQ/jWQuj4MIbJCYSsL/0MzlpIQV8MPcfjIv/.u', 'depchuanseo@gmail.com', 1, '2014-10-28 09:32:15', '2014-10-29 07:50:38'),
+	(1, 1, 'admin', '$2a$10$Y9HMF2abZ18V9kSHQ/jWQuj4MIbJCYSsL/0MzlpIQV8MPcfjIv/.u', 'depchuanseo@gmail.com', 1, '2014-10-28 09:32:15', '2014-10-29 23:17:30'),
 	(2, 3, 'ntsieu', '$2a$10$NcT4KM.HnMVRtDmJCrdlkOC22fzwPIZHRDsBgvmaxQRf4AmZkgaxO', 'ntsieu@gmail.com', 1, '2014-10-29 06:59:13', '2014-10-29 06:59:13');
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 /*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;
