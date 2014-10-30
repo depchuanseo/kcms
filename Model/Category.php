@@ -55,6 +55,10 @@ class Category extends AppModel {
             //'last' => false, // Stop validation after this rule
             //'on' => 'create', // Limit validation to 'create' or 'update' operations
             ),
+            'isUnique' => array(
+                'rule' => 'isUnique',
+                'message' => 'Slug đã tồn tại, vui lòng chọn Slug mới'
+            ),
         ),
         'published' => array(
             'boolean' => array(

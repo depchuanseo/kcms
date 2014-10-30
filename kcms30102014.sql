@@ -13,23 +13,26 @@
 -- Dumping structure for table kcms.albums
 DROP TABLE IF EXISTS `albums`;
 CREATE TABLE IF NOT EXISTS `albums` (
-  `id` bigint(20) NOT NULL,
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
   `category_id` bigint(20) NOT NULL,
   `title` varchar(255) NOT NULL,
   `slug` varchar(255) NOT NULL,
   `image` varchar(255) NOT NULL,
-  `description` varchar(255) DEFAULT NULL,
+  `description` longtext,
   `published` tinyint(1) NOT NULL DEFAULT '1',
   `meta_title` varchar(70) DEFAULT NULL,
   `meta_keywords` varchar(255) DEFAULT NULL,
   `meta_description` varchar(160) DEFAULT NULL,
   `created` datetime NOT NULL,
-  `modified` datetime NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+  `modified` datetime NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 
--- Dumping data for table kcms.albums: ~0 rows (approximately)
+-- Dumping data for table kcms.albums: ~1 rows (approximately)
 DELETE FROM `albums`;
 /*!40000 ALTER TABLE `albums` DISABLE KEYS */;
+INSERT INTO `albums` (`id`, `category_id`, `title`, `slug`, `image`, `description`, `published`, `meta_title`, `meta_keywords`, `meta_description`, `created`, `modified`) VALUES
+	(1, 15, 'sdfsdf', 'sdfsdf', 'Lighthouse.jpg', '<p>sdfsdf</p>\r\n', 1, '', '', '', '2014-10-30 11:42:50', '2014-10-30 11:43:35');
 /*!40000 ALTER TABLE `albums` ENABLE KEYS */;
 
 
@@ -46,11 +49,13 @@ CREATE TABLE IF NOT EXISTS `albumsimages` (
   `size` int(11) DEFAULT '0',
   `active` tinyint(1) DEFAULT '1',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 
--- Dumping data for table kcms.albumsimages: ~0 rows (approximately)
+-- Dumping data for table kcms.albumsimages: ~1 rows (approximately)
 DELETE FROM `albumsimages`;
 /*!40000 ALTER TABLE `albumsimages` DISABLE KEYS */;
+INSERT INTO `albumsimages` (`id`, `model`, `foreign_key`, `name`, `attachment`, `dir`, `type`, `size`, `active`) VALUES
+	(1, 'Album', 1, '', '', NULL, NULL, 0, 1);
 /*!40000 ALTER TABLE `albumsimages` ENABLE KEYS */;
 
 
@@ -99,15 +104,16 @@ CREATE TABLE IF NOT EXISTS `categories` (
   `created` datetime NOT NULL,
   `modified` datetime NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8;
 
--- Dumping data for table kcms.categories: ~1 rows (approximately)
+-- Dumping data for table kcms.categories: ~4 rows (approximately)
 DELETE FROM `categories`;
 /*!40000 ALTER TABLE `categories` DISABLE KEYS */;
 INSERT INTO `categories` (`id`, `parent_id`, `lft`, `rght`, `title`, `slug`, `image`, `description`, `published`, `meta_title`, `meta_keywords`, `meta_description`, `template`, `terms`, `created`, `modified`) VALUES
 	(1, NULL, 1, 2, 'Uncategorized', 'uncategorized', NULL, NULL, 1, NULL, NULL, NULL, NULL, 'page', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
 	(13, NULL, 1, 4, 'Thử danh mục', 'thu-danh-muc', 'Penguins.jpg', '', 1, '', '', '', '', 'post', '2014-10-30 07:21:54', '2014-10-30 07:21:54'),
-	(14, 13, 2, 3, 'Test thử', 'test-thu', NULL, '', 1, '', '', '', '', 'post', '2014-10-30 07:22:23', '2014-10-30 07:22:23');
+	(14, 13, 2, 3, 'Test thử', 'test-thu', NULL, '', 1, '', '', '', '', 'post', '2014-10-30 07:22:23', '2014-10-30 07:22:23'),
+	(15, NULL, 1, 2, 'Thư viện ảnh', 'thu-vien-anh', NULL, '', 1, '', '', '', '', 'gallery', '2014-10-30 09:04:00', '2014-10-30 09:04:00');
 /*!40000 ALTER TABLE `categories` ENABLE KEYS */;
 
 
@@ -130,7 +136,7 @@ INSERT INTO `configurations` (`id`, `title`, `key`, `value`, `type`) VALUES
 	(1, 'Tiêu đề trang web', 'meta_title', 'Từ khi được thành lập, BOO đã xác định hướng đi của mình là không ngừng nâng cao chất lượng sản phẩm', 'text'),
 	(2, 'Từ khóa trang chủ', 'meta_keywords', 'Thời trang, ý tưởng, iwill', 'text'),
 	(3, 'Mô tả ngắn trang chủ', 'meta_description', 'BOO còn mong muốn đóng góp một phần vào sự phát triển của xã hội, đặc biệt là có thể ảnh hưởng tích cực đến suy nghĩ của các bạn trẻ.', 'text'),
-	(4, 'Địa chỉ chân trang', 'footer_address', '', 'textarea');
+	(4, 'Địa chỉ chân trang', 'footer_address', '<p><img alt="" src="/webroot/Uploads/images/Koala.jpg" style="height:768px; width:1024px" /></p>\r\n', 'textarea');
 /*!40000 ALTER TABLE `configurations` ENABLE KEYS */;
 
 

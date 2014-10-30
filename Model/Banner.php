@@ -14,6 +14,7 @@ class Banner extends AppModel {
                 'path' => '{ROOT}webroot{DS}files{DS}{model}{DS}',
                 'deleteOnUpdate' => true,
                 'deleteFolderOnDelete' => true,
+                'thumbnailMethod' => 'php',
             ),
         ),
     );

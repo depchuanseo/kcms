@@ -47,17 +47,19 @@ class AlbumsController extends AppController {
      *
      * @return void
      */
-    public function admin_add() {
+    public function admin_add($terms = 'gallery') {
         if ($this->request->is('post')) {
-            $this->Album->create();
-            if ($this->Album->save($this->request->data)) {
-                $this->Session->setFlash(__('Đã thêm dữ liệu thành công'), 'default', array('class' => 'alert alert-success'));
-                return $this->redirect(array('action' => 'index'));
-            } else {
-                $this->Session->setFlash(__('Có lỗi trong quá trình lưu dữ liệu. Vui lòng kiểm tra và thử lại.'), 'default', array('class' => 'alert alert-danger'));
+            $this->check_slug($this->modelClass);
+            try {
+                $this->Album->createWithAttachments($this->request->data);
+                $this->Session->setFlash(__('Đã lưu dữ liệu thành công'), 'default', 'alert alert-success');
+            } catch (Exception $e) {
+                $this->Session->setFlash($e->getMessage());
             }
         }
-        $categories = $this->Album->Category->find('list');
+        $categories = $this->Album->Category->generateTreeList(array(
+            'Category.terms' => $terms,
+        ));
         $this->set(compact('categories'));
     }
 

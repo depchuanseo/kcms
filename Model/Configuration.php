@@ -33,10 +33,10 @@ class Configuration extends AppModel {
             //'last' => false, // Stop validation after this rule
             //'on' => 'create', // Limit validation to 'create' or 'update' operations
             ),
-            'Unique' => array(
+            'isUnique' => array(
                 'rule' => 'isUnique',
                 'message' => 'Key đã tồn tại, vui lòng chọn key mới'
-            )
+            ),
         ),
         'value' => array(
             'notEmpty' => array(
