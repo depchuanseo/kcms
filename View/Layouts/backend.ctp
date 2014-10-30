@@ -17,7 +17,7 @@
         <![endif]-->
     </head>
     <body>
-        <div class="well">dsf</div>
+        <div class="well"></div>
         <div id="wrapper" class="container">
             <div class="col-xs-3 sidebar">
                 <div class="panel panel-success">
@@ -30,7 +30,7 @@
                             <li>
                                 <?php echo $this->Html->link('<i class="fa fa-bar-chart-o fa-fw"></i> Quản trị nội dung<span class="fa arrow"></span>', '#', array('class' => 'text-success', 'escape' => FALSE)); ?>
                                 <ul class="nav nav-second-level collapse">
-                                    <li><?php echo $this->Html->link('<i class="fa fa-angle-right"></i> Danh mục', '/admin/categories/add?terms=post', array('class' => 'text-success', 'escape' => FALSE)); ?></li>
+                                    <li><?php echo $this->Html->link('<i class="fa fa-angle-right"></i> Danh mục', '/admin/categories/?terms=post', array('class' => 'text-success', 'escape' => FALSE)); ?></li>
                                     <li><?php echo $this->Html->link('<i class="fa fa-angle-right"></i> Thêm danh mục', '/admin/categories/add/post', array('class' => 'text-success', 'escape' => FALSE)); ?></li>
                                     <li><?php echo $this->Html->link('<i class="fa fa-angle-right"></i> Bài viết', '/admin/posts/?terms=post', array('class' => 'text-success', 'escape' => FALSE)); ?></li>
                                     <li><?php echo $this->Html->link('<i class="fa fa-angle-right"></i> Thêm bài viết', '/admin/posts/add/post', array('class' => 'text-success', 'escape' => FALSE)); ?></li>

@@ -1520,3 +1520,61 @@ Stack Trace:
 #9 E:\xampp\htdocs\kcms\Cake\Routing\Dispatcher.php(160): Dispatcher->_invoke(Object(BannersController), Object(CakeRequest), Object(CakeResponse))
 #10 E:\xampp\htdocs\kcms\webroot\index.php(97): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
 #11 {main}
+2014-10-30 03:47:03 Error: [PDOException] SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'generateTreeList' at line 1
+Request URL: /kcms/admin/categories/?terms=gallery
+Stack Trace:
+#0 E:\xampp\htdocs\kcms\Cake\Model\Datasource\DboSource.php(458): PDOStatement->execute(Array)
+#1 E:\xampp\htdocs\kcms\Cake\Model\Datasource\DboSource.php(424): DboSource->_execute('generateTreeLis...', Array)
+#2 E:\xampp\htdocs\kcms\Cake\Model\Datasource\DboSource.php(665): DboSource->execute('generateTreeLis...', Array, Array)
+#3 E:\xampp\htdocs\kcms\Cake\Model\Datasource\DboSource.php(609): DboSource->fetchAll('generateTreeLis...', Array, Array)
+#4 E:\xampp\htdocs\kcms\Cake\Model\Model.php(800): DboSource->query('generateTreeLis...', Array, Object(Category))
+#5 E:\xampp\htdocs\kcms\Controller\CategoriesController.php(38): Model->__call('generateTreeLis...', Array)
+#6 E:\xampp\htdocs\kcms\Controller\CategoriesController.php(38): Category->generateTreeList(Array)
+#7 [internal function]: CategoriesController->admin_index()
+#8 E:\xampp\htdocs\kcms\Cake\Controller\Controller.php(490): ReflectionMethod->invokeArgs(Object(CategoriesController), Array)
+#9 E:\xampp\htdocs\kcms\Cake\Routing\Dispatcher.php(185): Controller->invokeAction(Object(CakeRequest))
+#10 E:\xampp\htdocs\kcms\Cake\Routing\Dispatcher.php(160): Dispatcher->_invoke(Object(CategoriesController), Object(CakeRequest), Object(CakeResponse))
+#11 E:\xampp\htdocs\kcms\webroot\index.php(97): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#12 {main}
+2014-10-30 03:49:14 Error: [PDOException] SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'recover' at line 1
+Request URL: /kcms/admin/categories/?terms=gallery
+Stack Trace:
+#0 E:\xampp\htdocs\kcms\Cake\Model\Datasource\DboSource.php(458): PDOStatement->execute(Array)
+#1 E:\xampp\htdocs\kcms\Cake\Model\Datasource\DboSource.php(424): DboSource->_execute('recover', Array)
+#2 E:\xampp\htdocs\kcms\Cake\Model\Datasource\DboSource.php(665): DboSource->execute('recover', Array, Array)
+#3 E:\xampp\htdocs\kcms\Cake\Model\Datasource\DboSource.php(609): DboSource->fetchAll('recover', Array, Array)
+#4 E:\xampp\htdocs\kcms\Cake\Model\Model.php(800): DboSource->query('recover', Array, Object(Category))
+#5 E:\xampp\htdocs\kcms\Controller\CategoriesController.php(26): Model->__call('recover', Array)
+#6 E:\xampp\htdocs\kcms\Controller\CategoriesController.php(26): Category->recover()
+#7 [internal function]: CategoriesController->admin_index()
+#8 E:\xampp\htdocs\kcms\Cake\Controller\Controller.php(490): ReflectionMethod->invokeArgs(Object(CategoriesController), Array)
+#9 E:\xampp\htdocs\kcms\Cake\Routing\Dispatcher.php(185): Controller->invokeAction(Object(CakeRequest))
+#10 E:\xampp\htdocs\kcms\Cake\Routing\Dispatcher.php(160): Dispatcher->_invoke(Object(CategoriesController), Object(CakeRequest), Object(CakeResponse))
+#11 E:\xampp\htdocs\kcms\webroot\index.php(97): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#12 {main}
+2014-10-30 05:04:57 Error: Fatal Error (1): Call to a member function setTreeScope() on a non-object in [E:\xampp\htdocs\kcms\Controller\CategoriesController.php, line 97]
+2014-10-30 05:04:57 Error: [FatalErrorException] Call to a member function setTreeScope() on a non-object
+Request URL: /kcms/admin/categories/add/post
+Stack Trace:
+#0 E:\xampp\htdocs\kcms\Cake\Error\ErrorHandler.php(203): ErrorHandler::handleFatalError(1, 'Call to a membe...', 'E:\\xampp\\htdocs...', 97)
+#1 [internal function]: ErrorHandler::handleError(1, 'Call to a membe...', 'E:\\xampp\\htdocs...', 97, Array)
+#2 E:\xampp\htdocs\kcms\Cake\Core\App.php(929): call_user_func('ErrorHandler::h...', 1, 'Call to a membe...', 'E:\\xampp\\htdocs...', 97, Array)
+#3 E:\xampp\htdocs\kcms\Cake\Core\App.php(902): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2014-10-30 05:17:58 Error: [PDOException] SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'findeById' at line 1
+Request URL: /kcms/admin/categories/delete/9
+Stack Trace:
+#0 E:\xampp\htdocs\kcms\Cake\Model\Datasource\DboSource.php(458): PDOStatement->execute(Array)
+#1 E:\xampp\htdocs\kcms\Cake\Model\Datasource\DboSource.php(424): DboSource->_execute('findeById', Array)
+#2 E:\xampp\htdocs\kcms\Cake\Model\Datasource\DboSource.php(665): DboSource->execute('findeById', Array, Array)
+#3 E:\xampp\htdocs\kcms\Cake\Model\Datasource\DboSource.php(609): DboSource->fetchAll('findeById', Array, Array)
+#4 E:\xampp\htdocs\kcms\Cake\Model\Model.php(800): DboSource->query('findeById', Array, Object(Category))
+#5 E:\xampp\htdocs\kcms\Controller\CategoriesController.php(179): Model->__call('findeById', Array)
+#6 E:\xampp\htdocs\kcms\Controller\CategoriesController.php(179): Category->findeById('9')
+#7 [internal function]: CategoriesController->admin_delete('9')
+#8 E:\xampp\htdocs\kcms\Cake\Controller\Controller.php(490): ReflectionMethod->invokeArgs(Object(CategoriesController), Array)
+#9 E:\xampp\htdocs\kcms\Cake\Routing\Dispatcher.php(185): Controller->invokeAction(Object(CakeRequest))
+#10 E:\xampp\htdocs\kcms\Cake\Routing\Dispatcher.php(160): Dispatcher->_invoke(Object(CategoriesController), Object(CakeRequest), Object(CakeResponse))
+#11 E:\xampp\htdocs\kcms\webroot\index.php(97): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#12 {main}

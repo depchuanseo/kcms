@@ -64,32 +64,24 @@ class BannersController extends AppController {
     public function admin_add($terms = null) {
         if ($this->request->is('post')) {
             $this->check_slug($this->modelClass);
-            $result = $this->uploadFile($this->modelClass);
-            if ($result['status']) {
-                $this->Session->setFlash('Upload ảnh thành công', 'default', array('class' => 'alert alert-success'));
-                $this->request->data[$this->modelClass]['image'] = $result['file_path'];
-
-                $this->Banner->create();
-                if ($this->Banner->save($this->request->data)) {
-                    $this->Session->setFlash(__('Đã thêm dữ liệu thành công'), 'default', array('class' => 'alert alert-success'));
-                    return $this->redirect(array(
-                                'action' => 'index',
-                                '?' => array(
-                                    'terms' => $terms
-                                )
-                    ));
-                } else {
-                    $this->Session->setFlash(__('Có lỗi trong quá trình lưu dữ liệu. Vui lòng kiểm tra và thử lại.'), 'default', array('class' => 'alert alert-danger'));
-                }
-            } else {
-                $this->Session->setFlash('Có lỗi trong quá trình upload ảnh. Vui lòng thử lại', 'default', array('class' => 'alert alert-danger'));
+            $this->Banner->create();
+            if ($this->Banner->save($this->request->data)) {
+                $this->Session->setFlash(__('Đã thêm dữ liệu thành công'), 'default', array('class' => 'alert alert-success'));
                 return $this->redirect(array(
                             'action' => 'index',
                             '?' => array(
                                 'terms' => $terms
                             )
                 ));
+            } else {
+                $this->Session->setFlash(__('Có lỗi trong quá trình lưu dữ liệu. Vui lòng kiểm tra và thử lại.'), 'default', array('class' => 'alert alert-danger'));
             }
+            return $this->redirect(array(
+                        'action' => 'index',
+                        '?' => array(
+                            'terms' => $terms
+                        )
+            ));
         }
         $this->set(compact('terms'));
     }
@@ -106,16 +98,6 @@ class BannersController extends AppController {
             throw new NotFoundException(__('Invalid banner'));
         }
         if ($this->request->is(array('post', 'put'))) {
-            $this->check_slug($this->modelClass);
-            if (empty($this->request->data[$this->modelClass]['image']['tmp_name'])) {
-                unset($this->request->data[$this->modelClass]['image']);
-            } else {
-                $result = $this->uploadFile($this->modelClass);
-                if ($result['status']) {
-                    $this->Session->setFlash('Upload ảnh thành công', 'default', array('class' => 'alert alert-success'));
-                    $this->request->data[$this->modelClass]['image'] = $result['file_path'];
-                }
-            }
             if ($this->Banner->save($this->request->data)) {
                 $this->Session->setFlash(__('Dữ liệu đã được cập nhật thành công.'), 'default', array('class' => 'alert alert-success'));
                 return $this->redirect(array(
@@ -124,8 +106,6 @@ class BannersController extends AppController {
                                 'terms' => $this->request->data[$this->modelClass]['terms']
                             )
                 ));
-            } else {
-                $this->Session->setFlash(__('Có lỗi trong quá trình cập nhật dữ liệu. Vui lòng kiểm tra và thử lại'), 'default', array('class' => 'alert alert-danger'));
             }
         } else {
             $options = array('conditions' => array('Banner.' . $this->Banner->primaryKey => $id));
