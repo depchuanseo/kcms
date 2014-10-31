@@ -23,8 +23,23 @@ class PostsController extends AppController {
      * @return void
      */
     public function admin_index() {
+        if (isset($this->request->query['terms'])) {
+            $terms = $this->request->query['terms'];
+        }
+        if (empty($terms)) {
+            return $this->redirect(array(
+                        'controller' => 'pages',
+                        'action' => 'backend'
+            ));
+        }
         $this->Post->recursive = 0;
-        $this->set('posts', $this->Paginator->paginate());
+        $this->Paginator->settings = array(
+            'conditions' => array(
+                'Post.terms' => $terms,
+            )
+        );
+        $posts = $this->Paginator->paginate('Post');
+        $this->set(compact('posts', 'terms'));
     }
 
     /**
@@ -47,18 +62,26 @@ class PostsController extends AppController {
      *
      * @return void
      */
-    public function admin_add() {
+    public function admin_add($terms = NULL) {
         if ($this->request->is('post')) {
+            $this->check_slug($this->modelClass);
             $this->Post->create();
             if ($this->Post->save($this->request->data)) {
                 $this->Session->setFlash(__('Đã thêm dữ liệu thành công'), 'default', array('class' => 'alert alert-success'));
-                return $this->redirect(array('action' => 'index'));
+                return $this->redirect(array(
+                            'action' => 'index',
+                            '?' => array(
+                                'terms' => $terms
+                            )
+                ));
             } else {
                 $this->Session->setFlash(__('Có lỗi trong quá trình lưu dữ liệu. Vui lòng kiểm tra và thử lại.'), 'default', array('class' => 'alert alert-danger'));
             }
         }
-        $categories = $this->Post->Category->find('list');
-        $this->set(compact('categories'));
+        $categories = $this->Post->Category->generateTreeList(array(
+            'Category.terms' => $terms
+        ));
+        $this->set(compact('categories', 'terms'));
     }
 
     /**
@@ -73,9 +96,16 @@ class PostsController extends AppController {
             throw new NotFoundException(__('Invalid post'));
         }
         if ($this->request->is(array('post', 'put'))) {
+            $this->check_slug($this->modelClass);
+            $terms = $this->request->data['Post']['terms'];
             if ($this->Post->save($this->request->data)) {
                 $this->Session->setFlash(__('Dữ liệu đã được cập nhật thành công.'), 'default', array('class' => 'alert alert-success'));
-                return $this->redirect(array('action' => 'index'));
+                return $this->redirect(array(
+                            'action' => 'index',
+                            '?' => array(
+                                'terms' => $terms
+                            )
+                ));
             } else {
                 $this->Session->setFlash(__('Có lỗi trong quá trình cập nhật dữ liệu. Vui lòng kiểm tra và thử lại'), 'default', array('class' => 'alert alert-danger'));
             }
@@ -83,7 +113,9 @@ class PostsController extends AppController {
             $options = array('conditions' => array('Post.' . $this->Post->primaryKey => $id));
             $this->request->data = $this->Post->find('first', $options);
         }
-        $categories = $this->Post->Category->find('list');
+        $categories = $this->Post->Category->generateTreeList(array(
+            'Category.terms' => $terms
+        ));
         $this->set(compact('categories'));
     }
 
