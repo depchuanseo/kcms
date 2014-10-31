@@ -3,6 +3,7 @@
     <div class="panel-body">
         <div class="toolbarMenu">
             <?php echo $this->Html->link(__('Thêm mới'), array('action' => 'add', $terms), array('class' => 'btn btn-danger btn-sm')); ?>                    </div>
+        <?php echo $this->Session->flash(); ?>
         <table class="table table-condensed table-striped">
             <?php
             $tableHeaders = $this->Html->tableHeaders(array(
@@ -40,3 +41,4 @@
             ?>
         </table>
     </div>
+</div>

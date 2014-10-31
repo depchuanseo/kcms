@@ -237,5 +237,4 @@ class CategoriesController extends AppController {
                     ),
         ));
     }
-
 }
