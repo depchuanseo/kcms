@@ -198,8 +198,8 @@ class CategoriesController extends AppController {
                         'action' => 'backend',
             ));
         }
-        $this->Link->setTreeScope($category['Category']['terms']);
-        if ($this->Link->moveUp($category['Category']['id'], $step)) {
+        $this->Category->setTreeScope($category['Category']['terms']);
+        if ($this->Category->moveUp($category['Category']['id'], $step)) {
             $this->Session->setFlash('Đã thay đổi thành công', 'default', array('class' => 'alert alert-success'));
         } else {
             $this->Session->setFlash('Có lỗi trong quá trình xử lý', 'default', array('class' => 'alert alert-danger'));
@@ -224,8 +224,8 @@ class CategoriesController extends AppController {
                         'action' => 'backend',
             ));
         }
-        $this->Link->setTreeScope($category['Category']['terms']);
-        if ($this->Link->moveDown($id, $step)) {
+        $this->Category->setTreeScope($category['Category']['terms']);
+        if ($this->Category->moveDown($id, $step)) {
             $this->Session->setFlash('Xử lý thành công', 'default', array('class' => 'alert alert-success'));
         } else {
             $this->Session->setFlash('Có lỗi trong quá trình xử lý', 'default', array('class' => 'error'));
