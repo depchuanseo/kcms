@@ -185,4 +185,57 @@ class CategoriesController extends AppController {
         ));
     }
 
+    /**
+     * MoveUp
+     */
+    public function admin_moveup($id = NULL, $step = 1) {
+        $category = $this->Category->findById($id);
+        //pr($link);exit();
+        if (!isset($category['Category']['id'])) {
+            $this->Session->setFlash('ID này không tồn tại', 'default', array('class' => 'error'));
+            return $this->redirect(array(
+                        'controller' => 'pages',
+                        'action' => 'backend',
+            ));
+        }
+        $this->Link->setTreeScope($category['Category']['terms']);
+        if ($this->Link->moveUp($category['Category']['id'], $step)) {
+            $this->Session->setFlash('Đã thay đổi thành công', 'default', array('class' => 'alert alert-success'));
+        } else {
+            $this->Session->setFlash('Có lỗi trong quá trình xử lý', 'default', array('class' => 'alert alert-danger'));
+        }
+        return $this->redirect(array(
+                    'action' => 'index',
+                    '?' => array(
+                        'terms' => $category['Category']['terms'],
+                    )
+        ));
+    }
+
+    /**
+     * MoveDown
+     */
+    public function admin_movedown($id, $step = 1) {
+        $category = $this->Category->findById($id);
+        if (!isset($category['Category']['id'])) {
+            $this->Session->setFlash(__d('croogo', 'Invalid id for Link'), 'default', array('class' => 'alert alert-danger'));
+            return $this->redirect(array(
+                        'controller' => 'pages',
+                        'action' => 'backend',
+            ));
+        }
+        $this->Link->setTreeScope($category['Category']['terms']);
+        if ($this->Link->moveDown($id, $step)) {
+            $this->Session->setFlash('Xử lý thành công', 'default', array('class' => 'alert alert-success'));
+        } else {
+            $this->Session->setFlash('Có lỗi trong quá trình xử lý', 'default', array('class' => 'error'));
+        }
+        return $this->redirect(array(
+                    'action' => 'index',
+                    '?' => array(
+                        'menu_id' => $category['Category']['terms'],
+                    ),
+        ));
+    }
+
 }
